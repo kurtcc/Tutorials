@@ -1,0 +1,83 @@
+Install Go programming language compiler on Debian 64-bit:
+---------------------------------------------------------
+
+This might be of help: http://rubayeet.wordpress.com/category/linux/ubuntu/
+
+First set environment variables!!
+
+---------------------
+
+Environment variables:
+---------------
+
+Put this in
+--------------
+# vim /.bashrc
+
+or 
+
+$ sudo vim ~/.bashrc
+
+# .bashrc
+export PATH=${PATH}:/usr/local/go/go/bin
+
+
+------------------
+Put this in /etc/profile
+-----------------------
+# /etc/profile
+export GOROOT=/usr/local/go/go
+export GOOS=linux
+export GOARCH=amd64
+export GOBIN=/usr/local/go/go/bin
+
+
+
+--------------------
+
+
+
+
+
+# apt-get install gcc libc6-dev libc6-dev-i386
+
+Install Mercurial ( So we can run hg clone )
+
+# apt-get install mercurial
+
+# exit
+
+$ source /etc/profile
+
+$ source ~/.bashrc
+
+Is GOROOT set?
+
+$ echo $GOROOT
+
+$ hg clone -r release https://go.googlecode.com/hg/ $GOROOT
+abort: Permission denied: /usr/local/go
+
+$ sudo mkdir /usr/local/go
+
+$ sudo chown kurtcc:kurtcc /usr/local/go
+
+Now run this again: ( We don't wanna run this as root so that we can run go get command without being root)
+
+$ hg clone -r release https://go.googlecode.com/hg/ $GOROOT
+
+$ cd $GOROOT/src
+
+$ ./all.bash
+
+ALL TESTS PASSED 
+
+$ which go
+
+/usr/local/go/go/bin/go
+
+
+
+
+
+
