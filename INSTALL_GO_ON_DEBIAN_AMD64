@@ -78,6 +78,18 @@ $ which go
 
 
 
+Install Extra Libraries:
+---------------------------
 
+$ mkdir /usr/local/go/gopath
+
+$ sudo vim /etc/profile
+
+
+# Add this 
+export GOPATH=/usr/local/go/gopath
+
+
+Now you will be able to install libraries with the go get command.
 
 
